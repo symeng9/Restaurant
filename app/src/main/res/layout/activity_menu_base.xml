@@ -142,7 +142,7 @@
         app:layout_constraintVertical_bias="0.308" />
 
     <EditText
-        android:id="@+id/editTextquality5"
+        android:id="@+id/editTextquality4"
         android:layout_width="68dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -155,7 +155,7 @@
         app:layout_constraintVertical_bias="0.411" />
 
     <EditText
-        android:id="@+id/editTextquality4"
+        android:id="@+id/editTextquality5"
         android:layout_width="68dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -181,7 +181,7 @@
         app:layout_constraintVertical_bias="0.733" />
 
     <EditText
-        android:id="@+id/editTextquality"
+        android:id="@+id/editTextquality6"
         android:layout_width="68dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -233,7 +233,7 @@
         app:layout_constraintVertical_bias="0.209" />
 
     <EditText
-        android:id="@+id/editTextSize7"
+        android:id="@+id/editTextSize3"
         android:layout_width="68dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -246,7 +246,7 @@
         app:layout_constraintVertical_bias="0.31" />
 
     <EditText
-        android:id="@+id/editTextSize5"
+        android:id="@+id/editTextSize4"
         android:layout_width="68dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -259,7 +259,7 @@
         app:layout_constraintVertical_bias="0.411" />
 
     <EditText
-        android:id="@+id/editTextSize4"
+        android:id="@+id/editTextSize5"
         android:layout_width="68dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -272,7 +272,7 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <EditText
-        android:id="@+id/editTextSize3"
+        android:id="@+id/editTextSize6"
         android:layout_width="68dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -312,7 +312,7 @@
         app:layout_constraintVertical_bias="0.209" />
 
     <EditText
-        android:id="@+id/editTextname6"
+        android:id="@+id/editTextname3"
         android:layout_width="180dp"
         android:layout_height="43dp"
         android:ems="10"
@@ -326,7 +326,7 @@
         app:layout_constraintVertical_bias="0.309" />
 
     <EditText
-        android:id="@+id/editTextname5"
+        android:id="@+id/editTextname4"
         android:layout_width="180dp"
         android:layout_height="43dp"
         android:ems="10"
@@ -340,7 +340,7 @@
         app:layout_constraintVertical_bias="0.412" />
 
     <EditText
-        android:id="@+id/editTextname4"
+        android:id="@+id/editTextname5"
         android:layout_width="178dp"
         android:layout_height="43dp"
         android:ems="10"
@@ -353,7 +353,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextname3"
+        android:id="@+id/editTextname6"
         android:layout_width="178dp"
         android:layout_height="43dp"
         android:ems="10"

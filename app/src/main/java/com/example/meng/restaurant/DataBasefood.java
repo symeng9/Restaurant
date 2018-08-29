@@ -8,15 +8,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DataBasefood extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "FoodMenu1.db";
+    public static final String DATABASE_NAME = "FoodMenu3.db";
     public static final String TABLE_NAME = "Food_Table";
     public static final String COL_1 = "ID";
     public static final String COL_2 = "NAME";
     public static final String COL_3 = "SIZE";
     public static final String COL_4 = "QUALITY";
+
     public static final String COL_5 = "NAME1";
     public static final String COL_6 = "SIZE1";
     public static final String COL_7 = "QUALITY1";
+
+    public static final String COL_8 = "NAME1";
+    public static final String COL_9 = "SIZE1";
+    public static final String COL_10 = "QUALITY1";
 
 
 
@@ -28,7 +33,7 @@ public class DataBasefood extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(" create table "+ TABLE_NAME +" (ID INTEGER PRiMARY KEY AUTOINCREMENT, NAME TEXT, SIZE TEXT, QUALITY INTEGER)");
+        sqLiteDatabase.execSQL(" create table "+ TABLE_NAME +" (ID INTEGER PRiMARY KEY AUTOINCREMENT, NAME TEXT, SIZE TEXT, QUALITY INTEGER,  NAME1 TEXT, SIZE1 TEXT, QUALITY1 INTEGER,   NAME2 TEXT, SIZE2 TEXT, QUALITY2 INTEGER)");
 
     }
 
@@ -40,16 +45,23 @@ public class DataBasefood extends SQLiteOpenHelper {
     }
 
     public boolean InsertData(String name, String size, String quality,
-                              String name1, String size1, String quality1){
+                              String name1, String size1, String quality1,
+                              String name2, String size2, String quality2){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, size);
         contentValues.put(COL_4, quality);
+
         contentValues.put(COL_5, name1);
         contentValues.put(COL_6, size1);
         contentValues.put(COL_7, quality1);
+
+        contentValues.put(COL_8, name2);
+        contentValues.put(COL_9, size2);
+        contentValues.put(COL_10, quality2);
+
         long result = sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
         if(result==-1)
             return  false;
@@ -59,7 +71,8 @@ public class DataBasefood extends SQLiteOpenHelper {
     }
 
     public boolean updateData(String id, String name, String size, String quality,
-                              String name1, String size1, String quality1){
+                              String name1, String size1, String quality1,
+                              String name2, String size2, String quality2){
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
@@ -68,9 +81,15 @@ public class DataBasefood extends SQLiteOpenHelper {
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, size);
         contentValues.put(COL_4, quality);
+
         contentValues.put(COL_5, name1);
         contentValues.put(COL_6, size1);
         contentValues.put(COL_7, quality1);
+
+        contentValues.put(COL_8, name2);
+        contentValues.put(COL_9, size2);
+        contentValues.put(COL_10, quality2);
+
         sqLiteDatabase.update(TABLE_NAME, contentValues, "ID=?", new String[]{id});
         return true;
 
