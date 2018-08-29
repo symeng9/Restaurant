@@ -24,7 +24,8 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
             adapter7, adapter8, adapter9, adapter10, adapte11, adapter12;
     Button reciept, Order1, OrderUpdate, OrderView;
 
-    EditText editName, editquality, editSize, editID;
+    EditText editName, editquality, editSize, editID,
+            editName1, editquality1, editSize1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,11 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
         editName=findViewById(R.id.editTextname1);
         editquality=findViewById(R.id.editTextquality1);
         editSize=findViewById(R.id.editTextSize1);
+
+        editName1=findViewById(R.id.editTextname2);
+        editquality1=findViewById(R.id.editTextquality2);
+        editSize1=findViewById(R.id.editTextSize2);
+
         editID=findViewById(R.id.editTextUpdate);
 
         Order1=findViewById(R.id.bOrder);
@@ -54,7 +60,10 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
         if (view==Order1){
             boolean inserted= myDB.InsertData(editName.getText().toString(),
                     editquality.getText().toString(),
-                    editSize.getText().toString());
+                    editSize.getText().toString(),
+                    editName1.getText().toString(),
+                    editquality1.getText().toString(),
+                    editSize1.getText().toString());
             if (inserted=true)
                 Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
             else
@@ -65,7 +74,9 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
         if (view==OrderUpdate){
             boolean isUpdate = myDB.updateData(editID.getText().toString(),
                     editName.getText().toString(),
-                    editquality.getText().toString(), editSize.getText().toString());
+                    editquality.getText().toString(), editSize.getText().toString(),
+                    editName1.getText().toString(),
+                    editquality1.getText().toString(), editSize1.getText().toString());
             if (isUpdate==true)
                 Toast.makeText(MenuBaseActivity.this, "Data updated",Toast.LENGTH_LONG).show();
             else
@@ -85,7 +96,10 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
                 buffer.append("ID : "+ res.getString(0)+"\n");
                 buffer.append("NAME : "+ res.getString(1)+"\n");
                 buffer.append("QUALITY : "+ res.getString(2)+"\n");
-                buffer.append("SIZE : "+ res.getString(3)+"\n\n");
+                buffer.append("SIZE : "+ res.getString(3)+"\n");
+                buffer.append("NAME1 : "+ res.getString(4)+"\n");
+                buffer.append("QUALITY1 : "+ res.getString(5)+"\n");
+                buffer.append("SIZE1 : "+ res.getString(6)+"\n\n");
 
             }
 
