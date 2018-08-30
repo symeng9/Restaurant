@@ -90,7 +90,7 @@ public class DataBasefood extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_1, id);
+        contentValues.put(COL_3, id);
         contentValues.put(COL_4, name);
         contentValues.put(COL_5, size);
         contentValues.put(COL_6, quality);
@@ -104,6 +104,13 @@ public class DataBasefood extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         Cursor res =sqLiteDatabase.rawQuery(" select * from "+TABLE_ORDER, null);
+        return  res;
+    }
+
+    public Cursor getAllDataFood(){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        Cursor res =sqLiteDatabase.rawQuery(" select * from "+TABLE_FOOD, null);
         return  res;
     }
 

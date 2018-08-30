@@ -23,7 +23,13 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
 
     Button Order1, OrderUpdate, OrderView;
 
-    EditText editName,editID;
+    EditText editName, editSize1, editQuality1,
+            editName2, editSize2, editQuality2,
+            editName3, editSize3, editQuality3,
+            editName4, editSize4, editQuality4,
+            editName5, editSize5, editQuality5,
+            editName6, editSize6, editQuality6,
+            editID;
 
     RadioButton RadiobuttonFood1;
 
@@ -35,8 +41,30 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
         myDB = new DataBasefood(this);
 
         editID=findViewById(R.id.editTextUpdate);
-        editName=findViewById(R.id.editTextname1);
 
+        editName=findViewById(R.id.editTextname1);
+        editSize1=findViewById(R.id.editTextquality1);
+        editQuality1=findViewById(R.id.editTextSize1);
+
+        editName2=findViewById(R.id.editTextname2);
+        editSize2=findViewById(R.id.editTextquality2);
+        editQuality2=findViewById(R.id.editTextSize2);
+
+        editName3=findViewById(R.id.editTextname3);
+        editSize3=findViewById(R.id.editTextquality3);
+        editQuality3=findViewById(R.id.editTextSize3);
+
+        editName4=findViewById(R.id.editTextname4);
+        editSize4=findViewById(R.id.editTextquality4);
+        editQuality4=findViewById(R.id.editTextSize4);
+
+        editName5=findViewById(R.id.editTextname5);
+        editSize5=findViewById(R.id.editTextquality5);
+        editQuality5=findViewById(R.id.editTextSize5);
+
+        editName6=findViewById(R.id.editTextname6);
+        editSize6=findViewById(R.id.editTextquality6);
+        editQuality6=findViewById(R.id.editTextSize6);
 
         Order1=findViewById(R.id.bOrder);
         Order1.setOnClickListener(this);
@@ -61,8 +89,10 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
         }
 
         if (view==OrderUpdate){
-            boolean isUpdate = myDB.updateData(editID.getText().toString(),
-                    editName.getText().toString());
+            boolean isUpdate = myDB.updateDataFood(editID.getText().toString(),
+                    editName.getText().toString(),
+                    editSize1.getText().toString(),
+                    editQuality1.getText().toString());
             if (isUpdate==true)
                 Toast.makeText(MenuBaseActivity.this, "Data updated",Toast.LENGTH_LONG).show();
             else
@@ -71,7 +101,7 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
         }
 
         if (view==OrderView){
-            Cursor res = myDB.getAllData();
+            Cursor res = myDB.getAllDataFood();
             if (res.getCount()==0){
                 //show some message
                 showMessage("Error", "Nothing found");
@@ -80,7 +110,9 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
             StringBuffer buffer=new StringBuffer();
             while (res.moveToNext()){
                 buffer.append("ID : "+ res.getString(0)+"\n");
-                buffer.append("NAME : "+ res.getString(1)+"\n\n");
+                buffer.append("NAME : "+ res.getString(1)+"\n");
+                buffer.append("SIZE : "+ res.getString(2)+"\n");
+                buffer.append("QUALITY : "+ res.getString(3)+"\n\n");
 
             }
 
@@ -102,7 +134,7 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
         switch (view.getId()){
             case R.id.radioButton1:
                 if (checked){
-                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    boolean inserted= myDB.InsertDataFood(editName.getText().toString(), editSize1.getText().toString(), editQuality1.getText().toString());
                     if (inserted=true)
                         Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
                     else
@@ -112,7 +144,7 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.radioButton2:
                 if (checked){
-                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    boolean inserted= myDB.InsertDataFood(editName2.getText().toString(), editSize2.getText().toString(), editQuality2.getText().toString());
                     if (inserted=true)
                         Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
                     else
@@ -122,7 +154,7 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.radioButton3:
                 if (checked){
-                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    boolean inserted= myDB.InsertDataFood(editName3.getText().toString(), editSize3.getText().toString(), editQuality3.getText().toString());
                     if (inserted=true)
                         Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
                     else
@@ -132,7 +164,7 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.radioButton4:
                 if (checked){
-                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    boolean inserted= myDB.InsertDataFood(editName4.getText().toString(), editSize4.getText().toString(), editQuality4.getText().toString());
                     if (inserted=true)
                         Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
                     else
@@ -142,7 +174,7 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.radioButton5:
                 if (checked){
-                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    boolean inserted= myDB.InsertDataFood(editName5.getText().toString(), editSize5.getText().toString(), editQuality5.getText().toString());
                     if (inserted=true)
                         Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
                     else
@@ -152,7 +184,7 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.radioButton6:
                 if (checked){
-                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    boolean inserted= myDB.InsertDataFood(editName6.getText().toString(), editSize6.getText().toString(), editQuality6.getText().toString());
                     if (inserted=true)
                         Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
                     else
