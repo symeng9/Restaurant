@@ -299,7 +299,7 @@
 
     <EditText
         android:id="@+id/editTextname2"
-        android:layout_width="177dp"
+        android:layout_width="130dp"
         android:layout_height="43dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -313,7 +313,7 @@
 
     <EditText
         android:id="@+id/editTextname3"
-        android:layout_width="180dp"
+        android:layout_width="130dp"
         android:layout_height="43dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -327,7 +327,7 @@
 
     <EditText
         android:id="@+id/editTextname4"
-        android:layout_width="180dp"
+        android:layout_width="130dp"
         android:layout_height="43dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -341,7 +341,7 @@
 
     <EditText
         android:id="@+id/editTextname5"
-        android:layout_width="178dp"
+        android:layout_width="130dp"
         android:layout_height="43dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -354,7 +354,7 @@
 
     <EditText
         android:id="@+id/editTextname6"
-        android:layout_width="178dp"
+        android:layout_width="130dp"
         android:layout_height="43dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -368,7 +368,7 @@
 
     <EditText
         android:id="@+id/editTextname1"
-        android:layout_width="179dp"
+        android:layout_width="130dp"
         android:layout_height="43dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -379,5 +379,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.112" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="UpdatedataFood"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.211" />
+
+    <RadioButton
+        android:id="@+id/radioButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="UpdatedataFood"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.416" />
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="UpdatedataFood"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.312" />
+
+    <RadioButton
+        android:id="@+id/radioButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="UpdatedataFood"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <RadioButton
+        android:id="@+id/radioButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:onClick="UpdatedataFood"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113" />
+
+    <RadioButton
+        android:id="@+id/radioButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="UpdatedataFood"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.585" />
 
 </android.support.constraint.ConstraintLayout>

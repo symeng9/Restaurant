@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MenuTableOrderUpdate1Activity extends AppCompatActivity implements View.OnClickListener {
-    SQLiteOpenHelper mydb;
+    DataBasefood mydb;
     Button OrderUpdate;
     EditText EditID, editName, editquality, editSize;
 
@@ -31,6 +31,7 @@ public class MenuTableOrderUpdate1Activity extends AppCompatActivity implements 
     @Override
     public void onClick(View v) {
         if (OrderUpdate==v){
+
         }
     }
 }

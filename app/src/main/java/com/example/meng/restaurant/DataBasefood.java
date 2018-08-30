@@ -8,20 +8,16 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DataBasefood extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "FoodMenu3.db";
-    public static final String TABLE_NAME = "Food_Table";
+    public static final String DATABASE_NAME = "FoodMenu.db";
+    public static final String TABLE_ORDER = "TABLE_TABLE";
     public static final String COL_1 = "ID";
-    public static final String COL_2 = "NAME";
-    public static final String COL_3 = "SIZE";
-    public static final String COL_4 = "QUALITY";
+    public static final String COL_2 = "TABLENAME";
 
-    public static final String COL_5 = "NAME1";
-    public static final String COL_6 = "SIZE1";
-    public static final String COL_7 = "QUALITY1";
-
-    public static final String COL_8 = "NAME1";
-    public static final String COL_9 = "SIZE1";
-    public static final String COL_10 = "QUALITY1";
+    public static final String TABLE_FOOD = "FOOD_TABLE";
+    public static final String COL_3 = "FOODID";
+    public static final String COL_4 = "FOODNAME";
+    public static final String COL_5 = "FOODSIZE";
+    public static final String COL_6 = "FOODQUALITY";
 
 
 
@@ -33,36 +29,26 @@ public class DataBasefood extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(" create table "+ TABLE_NAME +" (ID INTEGER PRiMARY KEY AUTOINCREMENT, NAME TEXT, SIZE TEXT, QUALITY INTEGER,  NAME1 TEXT, SIZE1 TEXT, QUALITY1 INTEGER,   NAME2 TEXT, SIZE2 TEXT, QUALITY2 INTEGER)");
+        sqLiteDatabase.execSQL(" CREATE TABLE "+ TABLE_ORDER +" (ID INTEGER PRIMARY KEY AUTOINCREMENT, TABLENAME TEXT)");
+        sqLiteDatabase.execSQL(" CREATE TABLE " + TABLE_FOOD + "(FOODID INTEGER PRIMARY KEY AUTOINCREMENT, FOODNAME TEXT, FOODSIZE TEXT, FOODQUALITY INTEGER)");
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS "+ TABLE_NAME);
+        sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS "+ TABLE_ORDER);
+        sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS "+ TABLE_FOOD);
         onCreate(sqLiteDatabase);
 
     }
 
-    public boolean InsertData(String name, String size, String quality,
-                              String name1, String size1, String quality1,
-                              String name2, String size2, String quality2){
+    public boolean InsertData(String name){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
-        contentValues.put(COL_3, size);
-        contentValues.put(COL_4, quality);
 
-        contentValues.put(COL_5, name1);
-        contentValues.put(COL_6, size1);
-        contentValues.put(COL_7, quality1);
-
-        contentValues.put(COL_8, name2);
-        contentValues.put(COL_9, size2);
-        contentValues.put(COL_10, quality2);
-
-        long result = sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
+        long result = sqLiteDatabase.insert(TABLE_ORDER, null, contentValues);
         if(result==-1)
             return  false;
         else
@@ -70,27 +56,46 @@ public class DataBasefood extends SQLiteOpenHelper {
 
     }
 
-    public boolean updateData(String id, String name, String size, String quality,
-                              String name1, String size1, String quality1,
-                              String name2, String size2, String quality2){
+    public boolean InsertDataFood(String name, String size, String quality){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_4, name);
+        contentValues.put(COL_5, size);
+        contentValues.put(COL_6, quality);
+
+        long result = sqLiteDatabase.insert(TABLE_FOOD, null, contentValues);
+        if(result==-1)
+            return  false;
+        else
+            return true;
+
+    }
+
+    public boolean updateData(String id, String name){
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1, id);
         contentValues.put(COL_2, name);
-        contentValues.put(COL_3, size);
-        contentValues.put(COL_4, quality);
 
-        contentValues.put(COL_5, name1);
-        contentValues.put(COL_6, size1);
-        contentValues.put(COL_7, quality1);
+        sqLiteDatabase.update(TABLE_ORDER, contentValues, "ID=?", new String[]{id});
+        return true;
 
-        contentValues.put(COL_8, name2);
-        contentValues.put(COL_9, size2);
-        contentValues.put(COL_10, quality2);
+    }
 
-        sqLiteDatabase.update(TABLE_NAME, contentValues, "ID=?", new String[]{id});
+    public boolean updateDataFood(String id, String name, String size, String quality){
+
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_1, id);
+        contentValues.put(COL_4, name);
+        contentValues.put(COL_5, size);
+        contentValues.put(COL_6, quality);
+
+        sqLiteDatabase.update(TABLE_FOOD, contentValues, "ID=?", new String[]{id});
         return true;
 
     }
@@ -98,7 +103,7 @@ public class DataBasefood extends SQLiteOpenHelper {
     public Cursor getAllData(){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
-        Cursor res =sqLiteDatabase.rawQuery(" select * from "+TABLE_NAME, null);
+        Cursor res =sqLiteDatabase.rawQuery(" select * from "+TABLE_ORDER, null);
         return  res;
     }
 

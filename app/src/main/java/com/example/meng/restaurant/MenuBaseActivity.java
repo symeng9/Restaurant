@@ -9,7 +9,10 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -18,15 +21,11 @@ import java.nio.Buffer;
 public class MenuBaseActivity extends AppCompatActivity implements View.OnClickListener {
     DataBasefood myDB;
 
-    Spinner spinner1, spinner2, spinner3, spinner4, spinner5, spinner6,
-            spinner7, spinner8, spinner9, spinner10, spinner11, spinner12;
-    ArrayAdapter<CharSequence> adapter, adapter1, adapter3, adapter4, adapte5, adapter6,
-            adapter7, adapter8, adapter9, adapter10, adapte11, adapter12;
-    Button reciept, Order1, OrderUpdate, OrderView;
+    Button Order1, OrderUpdate, OrderView;
 
-    EditText editName, editquality, editSize, editID,
-            editName1, editquality1, editSize1,
-            editName2, editquality2, editSize2;
+    EditText editName,editID;
+
+    RadioButton RadiobuttonFood1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,19 +34,9 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
 
         myDB = new DataBasefood(this);
 
-        editName=findViewById(R.id.editTextname1);
-        editquality=findViewById(R.id.editTextquality1);
-        editSize=findViewById(R.id.editTextSize1);
-
-        editName1=findViewById(R.id.editTextname2);
-        editquality1=findViewById(R.id.editTextquality2);
-        editSize1=findViewById(R.id.editTextSize2);
-
-        editName2=findViewById(R.id.editTextname3);
-        editquality2=findViewById(R.id.editTextquality3);
-        editSize2=findViewById(R.id.editTextSize3);
-
         editID=findViewById(R.id.editTextUpdate);
+        editName=findViewById(R.id.editTextname1);
+
 
         Order1=findViewById(R.id.bOrder);
         Order1.setOnClickListener(this);
@@ -63,15 +52,7 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         if (view==Order1){
-            boolean inserted= myDB.InsertData(editName.getText().toString(),
-                    editquality.getText().toString(),
-                    editSize.getText().toString(),
-                    editName1.getText().toString(),
-                    editquality1.getText().toString(),
-                    editSize1.getText().toString(),
-                    editName1.getText().toString(),
-                    editquality1.getText().toString(),
-                    editSize1.getText().toString());
+            boolean inserted= myDB.InsertData(editName.getText().toString());
             if (inserted=true)
                 Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
             else
@@ -81,12 +62,7 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
 
         if (view==OrderUpdate){
             boolean isUpdate = myDB.updateData(editID.getText().toString(),
-                    editName.getText().toString(),
-                    editquality.getText().toString(), editSize.getText().toString(),
-                    editName1.getText().toString(),
-                    editquality1.getText().toString(), editSize1.getText().toString(),
-                    editName2.getText().toString(),
-                    editquality2.getText().toString(), editSize2.getText().toString());
+                    editName.getText().toString());
             if (isUpdate==true)
                 Toast.makeText(MenuBaseActivity.this, "Data updated",Toast.LENGTH_LONG).show();
             else
@@ -104,17 +80,7 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
             StringBuffer buffer=new StringBuffer();
             while (res.moveToNext()){
                 buffer.append("ID : "+ res.getString(0)+"\n");
-                buffer.append("NAME : "+ res.getString(1)+"\n");
-                buffer.append("QUALITY : "+ res.getString(2)+"\n");
-                buffer.append("SIZE : "+ res.getString(3)+"\n\n");
-
-                buffer.append("NAME1 : "+ res.getString(4)+"\n");
-                buffer.append("QUALITY1 : "+ res.getString(5)+"\n");
-                buffer.append("SIZE1 : "+ res.getString(6)+"\n\n");
-
-                buffer.append("NAME2 : "+ res.getString(7)+"\n");
-                buffer.append("QUALITY2 : "+ res.getString(8)+"\n");
-                buffer.append("SIZE2 : "+ res.getString(9)+"\n\n");
+                buffer.append("NAME : "+ res.getString(1)+"\n\n");
 
             }
 
@@ -129,5 +95,70 @@ public class MenuBaseActivity extends AppCompatActivity implements View.OnClickL
         builder.setMessage(message);
         builder.show();
 
+    }
+
+    public void UpdatedataFood(View view) {
+        boolean checked=((RadioButton)view).isChecked();
+        switch (view.getId()){
+            case R.id.radioButton1:
+                if (checked){
+                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    if (inserted=true)
+                        Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(MenuBaseActivity.this, "Data not inserted",Toast.LENGTH_LONG).show();
+                }
+                break;
+
+            case R.id.radioButton2:
+                if (checked){
+                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    if (inserted=true)
+                        Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(MenuBaseActivity.this, "Data not inserted",Toast.LENGTH_LONG).show();
+                }
+                break;
+
+            case R.id.radioButton3:
+                if (checked){
+                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    if (inserted=true)
+                        Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(MenuBaseActivity.this, "Data not inserted",Toast.LENGTH_LONG).show();
+                }
+                break;
+
+            case R.id.radioButton4:
+                if (checked){
+                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    if (inserted=true)
+                        Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(MenuBaseActivity.this, "Data not inserted",Toast.LENGTH_LONG).show();
+                }
+                break;
+
+            case R.id.radioButton5:
+                if (checked){
+                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    if (inserted=true)
+                        Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(MenuBaseActivity.this, "Data not inserted",Toast.LENGTH_LONG).show();
+                }
+                break;
+
+            case R.id.radioButton6:
+                if (checked){
+                    boolean inserted= myDB.InsertData(editName.getText().toString());
+                    if (inserted=true)
+                        Toast.makeText(MenuBaseActivity.this, "Data inserted",Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(MenuBaseActivity.this, "Data not inserted",Toast.LENGTH_LONG).show();
+                }
+                break;
+        }
     }
 }
