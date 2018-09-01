@@ -110,7 +110,8 @@ public class DataBasefood extends SQLiteOpenHelper {
     public Cursor getAllDataFood(){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
-        Cursor res =sqLiteDatabase.rawQuery(" select * from "+TABLE_FOOD, null);
+                //Cursor res =sqLiteDatabase.rawQuery(" select * from " + TABLE_FOOD +TABLE_ORDER, null);
+                Cursor res =sqLiteDatabase.rawQuery(" select * from " + TABLE_FOOD + " F " + " JOIN " + TABLE_ORDER + " O " + " ON F. " + COL_1 + " = O. " + COL_3 + " WHERE F. " + COL_1 + " = 1" , null);
         return  res;
     }
 
